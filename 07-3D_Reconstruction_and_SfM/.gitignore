@@ -1,0 +1,13 @@
+**/*.ipynb_checkpoints/
+chessboard/*.jpg
+kitchen_example/camera_models.json
+kitchen_example/exif/
+kitchen_example/features/
+kitchen_example/matches/
+kitchen_example/profile.log
+kitchen_example/reconstruction.json
+kitchen_example/reconstruction.ply
+kitchen_example/reference_lla.json
+kitchen_example/reports/
+kitchen_example/tracks.csv
+kitchen_example/undistorted/
