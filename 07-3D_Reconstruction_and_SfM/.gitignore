@@ -1,4 +1,5 @@
 **/*.ipynb_checkpoints/
+*.html
 chessboard/*.jpg
 kitchen_example/camera_models.json
 kitchen_example/exif/
