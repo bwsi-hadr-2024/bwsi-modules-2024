@@ -149,19 +149,10 @@ data_in_3857.area
 # - create a new column called `area` which represent the areas of each row in the shapefile
 # - What are the max, min, median, and quartiles values of the areas?
 
-# In[13]:
+# In[ ]:
 
 
-data['area'] = [geom.area for geom in data.geometry]
 
-area_stats = {
-    'max_area': data['area'].max(),
-    'min_area': data['area'].min(),
-    'median_area': data['area'].median(),
-    'quartiles': data['area'].quantile([0.25, 0.5, 0.75]).to_dict()
-}
-
-area_stats
 
 
 # ## Plotting
@@ -514,26 +505,10 @@ plt.savefig('MIT_main_campus_poly.png')
 # 
 # One tool to help draw GIS polygons is https://geojson.io; you can export your polygon as a geojson and upload it to your jupyter instance to access from jupyter.
 
-# In[74]:
+# In[ ]:
 
 
-from shapely.ops import unary_union
-# path to shapefile
-pop_filepath = "new_data/GISDATA_EJ_POLYPolygon.shp"
-mbta_filepath = "new_data/MBTA_NODE.shp"
 
-# Read file using gpd.read_file()
-pop_data = gpd.read_file(pop_filepath)
-mbta_data = gpd.read_file(mbta_filepath)
-
-base = pop_data.plot(figsize=(20,10), alpha=0.6, cmap='Reds', column='pct_minori', legend=True, legend_kwds={"label":"Percentage of pop. that is not non-Hispanic White (2020)"})
-ax_bounds = pop_data.total_bounds
-
-ax = mbta_data.plot(ax=base, marker='o', color='blue', markersize=5)
-ax.set_axis_off()
-ax.set_title('MBTA Rapid Transit Stops and Percentage Minority Population in the Greater Boston Area')
-ax.set(xlim=[ax_bounds[0], ax_bounds[2]],ylim=[ax_bounds[1], ax_bounds[3]])
-ctx.add_basemap(ax, crs=pop_data.crs, source=ctx.providers.CartoDB.Positron )
 
 
 # ### Covid-19 Resources
